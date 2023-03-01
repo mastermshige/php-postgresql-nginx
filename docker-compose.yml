@@ -5,7 +5,7 @@ services:
   web: 
     build: ./docker-config/php
     volumes:
-      - ./:/var/www
+      - ./src:/var/www/src
       - ./docker-config/php/php.ini:/usr/local/etc/php/php.ini
     depends_on:
       - postgres
@@ -17,7 +17,7 @@ services:
     ports:
       - "8888:80"
     volumes:
-      - ./:/var/www
+      - ./src:/var/www/src
       - ./docker-config/nginx/default.conf:/etc/nginx/conf.d/default.conf
     depends_on:
       - web

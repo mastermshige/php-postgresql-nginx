@@ -1,9 +1,6 @@
-FROM php:8.1-fpm
+FROM php:7.4-fpm
 WORKDIR /var/www
 ADD . /var/www
-
-# permission
-RUN chown -R www-data:www-data /var/www
 
 # install composer
 RUN cd /usr/bin && curl -s http://getcomposer.org/installer | php && ln -s /usr/bin/composer.phar /usr/bin/composer
